@@ -2,7 +2,8 @@
     init: function(elevators, floors) {
         for (elevator of elevators) {
             elevator.on("idle", function() {
-                for (i in floors) this.goToFloor(i);
+                for (i=floors.length-1; i>=0; i--)
+                    this.goToFloor(i);
             });
 
             elevator.on("passing_floor", function(floorNum, direction) {
